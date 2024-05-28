@@ -3,8 +3,20 @@ import { CommandKit } from "commandkit";
 import mongoose from "mongoose";
 import { config } from "dotenv";
 import { Player } from "discord-player";
+const express = require("express");
 
 config();
+
+const app = express();
+const port = process.env.PORT || 4000;
+
+app.get("/", (req: any, res: any) => {
+    res.send("Hello World!");
+});
+
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
+});
 
 const BOT_CLIENT: Client = new Client({
     intents: [
