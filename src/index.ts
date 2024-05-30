@@ -17,7 +17,7 @@ config();
         initCommandKit();
         await player.extractors.loadDefault();
 
-        BOT_CLIENT.login(process.env.TEST_BOT_TOKEN);
+        BOT_CLIENT.login(process.env.BOT_TOKEN);
     } catch (error) {
         console.log(`There was an error during init: ${error}`);
     }
