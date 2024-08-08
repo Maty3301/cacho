@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import { BOT_CLIENT } from "./lib/botClient";
 import { player } from "./lib/discordPlayer";
 import { initCommandKit } from "./lib/commandKit";
+import { YoutubeiExtractor } from "discord-player-youtubei";
 
 config();
 
@@ -12,9 +13,9 @@ config();
         console.log("Connected to MongoDB");
 
         initCommandKit();
-        await player.extractors.loadDefault();
+        await player.extractors.register(YoutubeiExtractor, {});
 
-        BOT_CLIENT.login(process.env.BOT_TOKEN);
+        BOT_CLIENT.login(process.env.TEST_BOT_TOKEN);
     } catch (error) {
         console.log(`There was an error during init: ${error}`);
     }
